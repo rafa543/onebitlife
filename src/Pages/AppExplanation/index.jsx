@@ -1,5 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import DefaultButton from "../../Components/Common/DefaultButton";
+import ExplanationCard from "../../Components/Explanation/ExplanationCard";
 
 export default function AppExplanation() {
     function handleSetShowHome() {
@@ -11,6 +12,7 @@ export default function AppExplanation() {
             <ScrollView>
                 <View style={{ alignItems: 'center' }}>
                     <Text style={styles.title}>Antes, deixa {"\n"} eu te explicar...</Text>
+                    <ExplanationCard/>
                     <Text style={styles.descriptionCta}>Pronto(a) para subir de nivel na vida?</Text>
                     <Text style={styles.description}>Na proxima tela você vai poder escolher {"\n"}
                         seus 4 hábitos de forma individual
