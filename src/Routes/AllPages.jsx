@@ -13,8 +13,8 @@ export default function AllPages() {
             <Stack.Navigator screenOptions={{
                 headerShown: false
             }}>
-                <Stack.Screen name="Start" component={Start}/>
                 <Stack.Screen name="Home" component={Home}/>
+                <Stack.Screen name="Start" component={Start}/>
                 <Stack.Screen name="AppExplanation" component={AppExplanation}/>
             </Stack.Navigator>
         </NavigationContainer>
