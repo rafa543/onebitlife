@@ -3,6 +3,7 @@ import { useState } from "react";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import LifeStatus from '../../Components/Common/LifeStatus'
 import CreateHabit from "../../Components/Home/CreateHabit";
+import EditHabit from "../../Components/Home/EditHabit";
 import StatusBar from "../../Components/Home/StatusBar";
 
 export default function Home() {
@@ -22,9 +23,53 @@ export default function Home() {
                 <View style={{ alignItems: 'center' }}>
                     <Text style={styles.dailyChecks}>❤️ 20 dias - ✔️ 80 checks</Text>
                     <LifeStatus />
-                    <StatusBar/>
+                    <StatusBar />
 
-                    <CreateHabit habitArea="Mente" borderColor="#90B7f3"/>
+                    {mindHabit ? (
+                        <EditHabit
+                            habit={mindHabit?.habitName}
+                            frequency={`${mindHabit?.habitTime} - ${mindHabit?.habitFrequency}`}
+                            habitArea={mindHabit?.habitArea}
+                            checkColor="#90b7f3"
+                        />
+                    ) : (
+                        <CreateHabit habitArea="Mente" borderColor="#90b7f3" />
+                    )}
+
+                    {moneyHabit ? (
+                        <EditHabit
+                            habit={moneyHabit?.habitName}
+                            frequency={`${moneyHabit?.habitTime} - ${moneyHabit?.habitFrequency}`}
+                            habitArea={moneyHabit?.habitArea}
+                            checkColor="#85bb65"
+                        />
+                    ) : (
+                        <CreateHabit habitArea="Financeiro" borderColor="#85bb65" />
+                    )}
+
+                    {bodyHabit ? (
+                        <EditHabit
+                            habit={bodyHabit?.habitName}
+                            frequency={`${bodyHabit?.habitTime} - ${bodyHabit?.habitFrequency}`}
+                            habitArea={bodyHabit?.habitArea}
+                            checkColor="#FF0044"
+                        />
+                    ) : (
+                        <CreateHabit habitArea="Corpo" borderColor="#FF0044" />
+                    )}
+
+                    {funHabit ? (
+                        <EditHabit
+                            habit={funHabit?.habitName}
+                            frequency={`${funHabit?.habitTime} - ${funHabit?.habitFrequency}`}
+                            habitArea={funHabit?.habitArea}
+                            checkColor="#fe7f23"
+                        />
+                    ) : (
+                        <CreateHabit habitArea="Humor" borderColor="#fe7f23" />
+                    )}
+
+
                 </View>
                 <Text style={styles.explanationText} onpress={() => { handleNavExplanation() }}>
                     Ver explicação novamente
