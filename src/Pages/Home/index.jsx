@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import LifeStatus from '../../Components/Common/LifeStatus'
+import StatusBar from "../../Components/Home/StatusBar";
 
 export default function Home() {
     const navigation = useNavigation()
 
     function handleNavExplanation() {
-        console.log("fsdfjs")
         navigation.navigate("AppExplanation")
     }
 
@@ -16,6 +16,7 @@ export default function Home() {
                 <View style={{ alignItems: 'center' }}>
                     <Text style={styles.dailyChecks}>❤️ 20 dias - ✔️ 80 checks</Text>
                     <LifeStatus />
+                    <StatusBar/>
                 </View>
                 <Text style={styles.explanationText} onpress={() => { handleNavExplanation() }}>
                     Ver explicação novamente
