@@ -1,8 +1,10 @@
-import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
-import {useNavigation} from '@react-navigation/native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-export default function HabitPage() {
+export default function HabitPage({ route }) {
     const navigation = useNavigation()
+    const { create, habitArea } = route.params
+
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -11,11 +13,16 @@ export default function HabitPage() {
                         style={styles.backBtn}
                         onPress={() => navigation.goBack()}
                     >
-                        <Image source={require("../../assets/icons/arrowBack.png")} style={styles.mainContent} />
+                        <Image source={require("../../assets/icons/arrowBack.png")} style={styles.arrowBack} />
                     </TouchableOpacity>
-                    <View>
-
+                    <View style={styles.mainContent}>
+                        <Text style={styles.title}>Configurações {"\n"} de hábito</Text>
+                        <Text style={styles.inputText}>Área</Text>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.area}>{habitArea?.habitArea}</Text>
+                        </View>
                     </View>
+
                 </View>
             </ScrollView>
         </View>

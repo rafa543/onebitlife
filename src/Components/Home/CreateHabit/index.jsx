@@ -1,8 +1,17 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import {useNavigation} from "@react-navigation/native"
 
 export default function CreateHabit({ habitArea, borderColor }) {
+    const navigation = useNavigation() 
+
     function handleCreate() {
-        console.log("click" + habitArea)
+        navigation.navigate(
+            "HabitPage",
+            {
+                create: true,
+                habitArea: {habitArea: habitArea}
+            }
+        )
     }
 
     return (
