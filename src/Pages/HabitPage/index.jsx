@@ -1,8 +1,12 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, setHabitInput } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import SelectHabit from '../../Components/HabitPage/SelectHabit'
+import { useState } from 'react'
+
 
 export default function HabitPage({ route }) {
     const navigation = useNavigation()
+    const [habitInput, setHabitInput] = useState()
     const { create, habitArea } = route.params
 
     return (
@@ -21,6 +25,8 @@ export default function HabitPage({ route }) {
                         <View style={styles.inputContainer}>
                             <Text style={styles.area}>{habitArea?.habitArea}</Text>
                         </View>
+                        <Text style={styles.inputText}>Hábito</Text>
+                        <SelectHabit habit={habitArea} habitInput={setHabitInput} />
                     </View>
 
                 </View>
