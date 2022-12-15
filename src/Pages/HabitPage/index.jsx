@@ -2,11 +2,13 @@ import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, setHabitIn
 import { useNavigation } from '@react-navigation/native'
 import SelectHabit from '../../Components/HabitPage/SelectHabit'
 import { useState } from 'react'
+import SelectFrequency from '../../Components/HabitPage/SelectFrequency'
 
 
 export default function HabitPage({ route }) {
     const navigation = useNavigation()
     const [habitInput, setHabitInput] = useState()
+    const [frequencyInput, setFrequencyInput] = useState()
     const { create, habitArea } = route.params
 
     return (
@@ -27,6 +29,11 @@ export default function HabitPage({ route }) {
                         </View>
                         <Text style={styles.inputText}>Hábito</Text>
                         <SelectHabit habit={habitArea} habitInput={setHabitInput} />
+                        <Text style={styles.inputText}>Frequência</Text>
+                        <SelectFrequency
+                            habitFrequency={habitInput?.habitFrequency}
+                            frequencyInput={setFrequencyInput}
+                        />
                     </View>
 
                 </View>
